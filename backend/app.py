@@ -38,7 +38,7 @@ def getStockInfo():
         response = jsonify({})
     else:
         data = request.get_json()
-        ticker = data.get('ticker')
+        ticker = data.get('ticker').upper()
 
         # Run the Python script (example: my_script.py) with user_message as an argument
         graph_data, table_data = stockInfo.getImportantInfo(ticker)

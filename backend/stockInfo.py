@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 
 def getImportantInfo(ticker):
+    ticker = ticker.upper()
     today = datetime.today().strftime('%Y-%m-%d')
 
     data = yf.download(ticker, start="2020-01-01", end=today)
