@@ -72,3 +72,6 @@ This section provides step-by-step instructions on how to set up and run your pr
 
 Enter a valid stock ticker into the input box. Wait for a couple seconds and you will be able to a view an in-depth textual analysis of the stock, a table with quantitative measures, a graph with recent stock trends, and useful links for more research.
 
+
+
+<img width="1371" alt="Screenshot 2023-10-01 at 5 56 29 PM" src="https://github.com/rohancherukuri14/stock-info/assets/8194491/898d5967-a81b-49e2-9080-e7b1c5b36d53">
