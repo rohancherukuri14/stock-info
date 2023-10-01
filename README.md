@@ -1,4 +1,4 @@
-# Stock Info
+# Stock News Analyzer
 
 A stock analyzer based on up-to-date news articles and quantitative measures.
 
