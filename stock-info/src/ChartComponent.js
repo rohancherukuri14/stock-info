@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, CartesianGrid, YAxis, Tooltip, Legend } from 'recharts';
 
 const ChartComponent = ({ bollLower, bollUpper, SMA_50, SMA_200, closePrices }) => {
     const [showBollLower, setShowBollLower] = useState(false);
@@ -63,7 +63,6 @@ const ChartComponent = ({ bollLower, bollUpper, SMA_50, SMA_200, closePrices }) 
             </div>
             <LineChart width={600} height={300} data={data}>
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                <XAxis dataKey="index" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
