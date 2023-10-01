@@ -53,7 +53,6 @@ def getStockInfo():
 
 
 def getRecentNewsAboutStock(ticker, data):
-    SYSTEM_MESSAGE = "You are a helpful assistant that generates search queries to find recent news about a stock given the ticker symbol. This can be expert stock analyses, news about the company, etc."
 
     search_response = metaphor.search(
         "Expert Stock Analysis about " + ticker, use_autoprompt=True, start_published_date="2023-06-01"
