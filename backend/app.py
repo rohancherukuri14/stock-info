@@ -41,9 +41,9 @@ def getStockInfo():
         ticker = data.get('ticker').upper()
 
         # Run the Python script (example: my_script.py) with user_message as an argument
-        graph_data, table_data = stockInfo.getImportantInfo(ticker)
+        graph_data, table_data, name = stockInfo.getImportantInfo(ticker)
 
-        summary, urls = getRecentNewsAboutStock(ticker, table_data)
+        summary, urls = getRecentNewsAboutStock(name, table_data)
 
         response = jsonify({"graphData": graph_data, "tableData": table_data, "summary": summary, 'urls': urls})
     # Price with Moving Averages and Bollinger Bands
@@ -52,10 +52,10 @@ def getStockInfo():
     return response
 
 
-def getRecentNewsAboutStock(ticker, data):
+def getRecentNewsAboutStock(name, data):
 
     search_response = metaphor.search(
-        "Expert Stock Analysis about " + ticker, use_autoprompt=True, start_published_date="2023-06-01"
+        "Expert Stock Analysis about " + name, use_autoprompt=True, start_published_date="2023-06-01"
     )
 
     contents_result = search_response.get_contents()
@@ -63,7 +63,7 @@ def getRecentNewsAboutStock(ticker, data):
 
     urls = [content.url for content in contents_result.contents]
 
-    SYSTEM_MESSAGE = "You are an expert investment banker and your job is to analyze a stock based on recent news articles and technical measures. The content of a recent news article will be given, followed by a json string with quantitative measures of the stock. Give reasonings behind your analysis."
+    SYSTEM_MESSAGE = "You are an expert investment banker and your job is to analyze a stock based on recent news articles and technical measures. The content of a recent news article will be given, followed by a json string with quantitative measures of the stock. Give reasonings behind your analysis, for both the article and the quantitative measures."
 
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",

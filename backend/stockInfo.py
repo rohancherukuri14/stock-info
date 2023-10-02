@@ -11,8 +11,9 @@ def getImportantInfo(ticker):
 
     info = yf.Ticker(ticker).info
 
+    name = info.get("longName")
+
     data['RSI'] = ta.rsi(data['Close'])
-    print(data['RSI'])
     data['SMA_50'] = ta.sma(data['Close'], length=50)
     data['SMA_200'] = ta.sma(data['Close'], length=200)
 
@@ -61,6 +62,6 @@ def getImportantInfo(ticker):
         "boll_upper": data['BOLL_UPPER'].iloc[-1],
         "close_price": data['Close'].iloc[-1]
     }
-    return processed_graph_data, processed_table_data
+    return processed_graph_data, processed_table_data, name
 
-    
+getImportantInfo("TM")
